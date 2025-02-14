@@ -1,0 +1,9 @@
+# @package habitat.dataset
+
+defaults:
+  - /habitat/dataset: dataset_config_schema
+  - _self_
+
+type: CustomPointNav-v1
+split: train_large
+data_path: data/datasets/pointnav/custom_hssd/v1/{split}/{split}.json.gz

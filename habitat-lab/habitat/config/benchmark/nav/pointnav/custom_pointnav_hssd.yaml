@@ -1,0 +1,30 @@
+# @package _global_
+
+defaults:
+  - /habitat: habitat_config_base
+  - /habitat/task: custom_pointnav
+  - /habitat/simulator/sensor_setups@habitat.simulator.agents.main_agent: rgbd_agent
+  - /habitat/dataset/pointnav: custom_hssd
+  - _self_
+  - /habitat/task/measurements:
+        - distance_to_goal
+        - success
+        - distance_to_goal_reward
+
+habitat:
+  environment:
+    max_episode_steps: 500
+  simulator:
+    concur_render: True
+    scene_dataset: "/home/adonis/Documents/Thesis/Habitat/tak/habitat-lab/data/scene_datasets/hssd-hab/hssd-hab.scene_dataset_config.json"
+    additional_object_paths:
+      - "/home/adonis/Documents/Thesis/Habitat/tak/habitat-lab/data/objects/ycb/configs/"
+    agents:
+      main_agent:
+        sim_sensors:
+          rgb_sensor:
+            width: 256
+            height: 256
+          depth_sensor:
+            width: 256
+            height: 256
